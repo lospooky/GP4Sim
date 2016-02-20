@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{80DD08E2-5379-407F-996D-384B9D7C159C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GP4Sim.Trading</RootNamespace>
+    <AssemblyName>GP4Sim.Trading-1.0</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Production|AnyCPU'">
+    <OutputPath>..\..\..\..\HeuristicLab [Production]\source\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <Optimize>true</Optimize>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Limited|AnyCPU'">
+    <OutputPath>..\..\..\HeuristicLab [Limited]\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HeuristicLab.Collections-3.3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\HeuristicLab\bin\HeuristicLab.Collections-3.3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.Common-3.3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\HeuristicLab\bin\HeuristicLab.Common-3.3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.Common.Resources-3.3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\HeuristicLab\bin\HeuristicLab.Common.Resources-3.3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.Core-3.3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\HeuristicLab\bin\HeuristicLab.Core-3.3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.Core.Views-3.3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\HeuristicLab\bin\HeuristicLab.Core.Views-3.3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.Data-3.3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\HeuristicLab\bin\HeuristicLab.Data-3.3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.Encodings.SymbolicExpressionTreeEncoding-3.4, Version=3.4.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\HeuristicLab\bin\HeuristicLab.Encodings.SymbolicExpressionTreeEncoding-3.4.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.MainForm-3.3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\HeuristicLab\bin\HeuristicLab.MainForm-3.3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.MainForm.WindowsForms-3.3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\HeuristicLab\bin\HeuristicLab.MainForm.WindowsForms-3.3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.Operators-3.3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\HeuristicLab\bin\HeuristicLab.Operators-3.3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.Optimization-3.3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\HeuristicLab\bin\HeuristicLab.Optimization-3.3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.Parameters-3.3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\HeuristicLab\bin\HeuristicLab.Parameters-3.3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.Persistence-3.3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\HeuristicLab\bin\HeuristicLab.Persistence-3.3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.PluginInfrastructure-3.3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\HeuristicLab\bin\HeuristicLab.PluginInfrastructure-3.3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.Problems.DataAnalysis-3.4, Version=3.4.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\HeuristicLab\bin\HeuristicLab.Problems.DataAnalysis-3.4.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.Problems.DataAnalysis.Symbolic-3.4, Version=3.4.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\HeuristicLab\bin\HeuristicLab.Problems.DataAnalysis.Symbolic-3.4.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.Problems.DataAnalysis.Views-3.4, Version=3.4.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\HeuristicLab\bin\HeuristicLab.Problems.DataAnalysis.Views-3.4.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.Problems.Instances-3.3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\HeuristicLab\bin\HeuristicLab.Problems.Instances-3.3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.Problems.Instances.DataAnalysis-3.3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\HeuristicLab\bin\HeuristicLab.Problems.Instances.DataAnalysis-3.3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.Problems.Instances.DataAnalysis.Views-3.3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\HeuristicLab\bin\HeuristicLab.Problems.Instances.DataAnalysis.Views-3.3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.Problems.Instances.Views-3.3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\HeuristicLab\bin\HeuristicLab.Problems.Instances.Views-3.3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.Random-3.3">
+      <HintPath>..\..\HeuristicLab\bin\HeuristicLab.Random-3.3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.Visualization.ChartControlsExtensions-3.3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\HeuristicLab\bin\HeuristicLab.Visualization.ChartControlsExtensions-3.3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Ookii.Dialogs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0c15020868fd6249, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Ookii.Dialogs.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Analyzers\OneSolution\TradingSingleObjectiveTrainingBestSolutionAnalyzer.cs" />
+    <Compile Include="Analyzers\OneSolution\TradingSingleObjectiveValidationBestSolutionAnalyzer.cs" />
+    <Compile Include="Analyzers\TradingSingleObjectiveCombinedNBestSolutionsAnalyzer.cs" />
+    <Compile Include="Analyzers\TradingSingleObjectiveOverfittingAnalyzer.cs" />
+    <Compile Include="Analyzers\TradingSingleObjectiveTestNBestSolutionsAnalyzer.cs" />
+    <Compile Include="Analyzers\TradingSingleObjectiveTrainingNBestSolutionsAnalyzer.cs" />
+    <Compile Include="Analyzers\TradingSingleObjectiveValidationNBestSolutionsAnalyzer.cs" />
+    <Compile Include="Calculators\TradingCalculator.cs" />
+    <Compile Include="Evaluators\Testing\TradingSingleObjectiveAnnualizedSortinoEvaluator.cs" />
+    <Compile Include="Evaluators\Testing\TradingSingleObjectiveRelativeScoreEvaluator.cs" />
+    <Compile Include="Evaluators\Testing\TradingSingleObjectiveScoreActivityEvaluator.cs" />
+    <Compile Include="Evaluators\Testing\TradingSingleObjectiveScoreWeightedEvaluator.cs" />
+    <Compile Include="Evaluators\Testing\TradingSingleObjectiveSortinoEvaluator.cs" />
+    <Compile Include="Evaluators\TradingSingleObjectiveEvaluator.cs" />
+    <Compile Include="Evaluators\TradingSingleObjectiveNAVEvaluator.cs" />
+    <Compile Include="Evaluators\Testing\TradingSingleObjectiveScoreEvaluator.cs" />
+    <Compile Include="Evaluators\Testing\TradingSingleObjectiveScorePenaltiesEvaluator.cs" />
+    <Compile Include="Instances\DummyTradingDataDescriptor.cs" />
+    <Compile Include="Instances\TradingCSVInstanceProvider.cs" />
+    <Compile Include="Instances\TradingDataDescriptor.cs" />
+    <Compile Include="Instances\TradingDummyInstanceProvider.cs" />
+    <Compile Include="Instances\TradingImportType.cs" />
+    <Compile Include="Instances\TradingInstanceProvider.cs" />
+    <Compile Include="Instances\TradingTimeBaseInstanceProvider.cs" />
+    <Compile Include="Instances\ValueGenerator.cs" />
+    <Compile Include="Interfaces\ITradingEvaluator.cs" />
+    <Compile Include="Interfaces\ITradingModel.cs" />
+    <Compile Include="Interfaces\ITradingProblem.cs" />
+    <Compile Include="Interfaces\ITradingProblemData.cs" />
+    <Compile Include="Interfaces\ITradingSimulationParameters.cs" />
+    <Compile Include="Interfaces\ITradingSingleObjectiveEvaluator.cs" />
+    <Compile Include="Interfaces\ITradingSolution.cs" />
+    <Compile Include="Parameters\TradingSimulationParameters.cs" />
+    <Compile Include="Plugin.cs" />
+    <Compile Include="Problem\MaximumReturnCalculator.cs" />
+    <Compile Include="Problem\TradingProblem.cs" />
+    <Compile Include="Problem\TradingProblemData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Solutions\TradingModel.cs" />
+    <Compile Include="Solutions\TradingSolution.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GP4Sim.CSharpAgents\GP4Sim.CSharpAgents.csproj">
+      <Project>{28c2f55b-2304-40f2-8d95-08a4873f6633}</Project>
+      <Name>GP4Sim.CSharpAgents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GP4Sim.Data\GP4Sim.Data.csproj">
+      <Project>{3f975d8c-5437-49a7-abad-89537cf77278}</Project>
+      <Name>GP4Sim.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GP4Sim.SimulationFramework\GP4Sim.SimulationFramework.csproj">
+      <Project>{982e6c62-f086-4ddd-b17a-700a92cc0360}</Project>
+      <Name>GP4Sim.SimulationFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GP4Sim.SymbolicTrees\GP4Sim.SymbolicTrees.csproj">
+      <Project>{41b9a105-999d-497c-8cfe-d2bdcecf50e7}</Project>
+      <Name>GP4Sim.SymbolicTrees</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GP4Sim.Trading.MonteCarlo\GP4Sim.Trading.MonteCarlo.csproj">
+      <Project>{55207985-9532-4217-9108-85ef6c1aaef8}</Project>
+      <Name>GP4Sim.Trading.MonteCarlo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GP4Sim.Trading.Simulation\GP4Sim.Trading.Simulation.csproj">
+      <Project>{a622bb01-54f3-4694-af14-ad6e02ad49f3}</Project>
+      <Name>GP4Sim.Trading.Simulation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

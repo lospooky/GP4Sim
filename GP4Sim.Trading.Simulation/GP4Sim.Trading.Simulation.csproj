@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A622BB01-54F3-4694-AF14-AD6E02AD49F3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GP4Sim.Trading.Simulation</RootNamespace>
+    <AssemblyName>GP4Sim.Trading.Simulation-1.0</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Production|AnyCPU'">
+    <OutputPath>..\..\..\..\HeuristicLab [Production]\source\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <Optimize>true</Optimize>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Limited|AnyCPU'">
+    <OutputPath>..\..\..\HeuristicLab [Limited]\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HeuristicLab.Common-3.3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\HeuristicLab\bin\HeuristicLab.Common-3.3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.Common.Resources-3.3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\HeuristicLab\bin\HeuristicLab.Common.Resources-3.3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.Core-3.3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\HeuristicLab\bin\HeuristicLab.Core-3.3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.Data-3.3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\HeuristicLab\bin\HeuristicLab.Data-3.3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.Persistence-3.3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\HeuristicLab\bin\HeuristicLab.Persistence-3.3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.PluginInfrastructure-3.3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\HeuristicLab\bin\HeuristicLab.PluginInfrastructure-3.3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HeuristicLab.Problems.DataAnalysis-3.4, Version=3.4.0.0, Culture=neutral, PublicKeyToken=ba48961d6f65dcec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\HeuristicLab\bin\HeuristicLab.Problems.DataAnalysis-3.4.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BuyHoldStats.cs" />
+    <Compile Include="CommissionFunctionFactory.cs" />
+    <Compile Include="CommissionFunctions.cs" />
+    <Compile Include="CommissionFunctionValue.cs" />
+    <Compile Include="CrossingStats.cs" />
+    <Compile Include="ExposureStats.cs" />
+    <Compile Include="FitnessErrorCodes.cs" />
+    <Compile Include="FitnessScoringFunctions.cs" />
+    <Compile Include="FullTradingStats.cs" />
+    <Compile Include="ITradingEnvelope.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="LogLineEventArgs.cs" />
+    <Compile Include="MCEnvelope.cs" />
+    <Compile Include="OnlineMVSCalculator.cs" />
+    <Compile Include="Pacemaker.cs" />
+    <Compile Include="Plugin.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScoreAssigners\ScoreAssigner.cs" />
+    <Compile Include="ScoreAssigners\ScoreAssignerActivityAware.cs" />
+    <Compile Include="ScoreAssigners\ScoreAssignerRelative.cs" />
+    <Compile Include="ScoreAssigners\ScoreAssignerSortino.cs" />
+    <Compile Include="ScoreAssigners\ScoreAssignerWPenalties.cs" />
+    <Compile Include="ScoreAssigners\WeightedScoreAssigner.cs" />
+    <Compile Include="TradingFitnessType.cs" />
+    <Compile Include="TradingSimulationRunMode.cs" />
+    <Compile Include="SideTradingStats.cs" />
+    <Compile Include="SimulationParameters_Internal.cs" />
+    <Compile Include="SimulationStats.cs" />
+    <Compile Include="TradingEnvelope.cs" />
+    <Compile Include="TradingSimulation.cs" />
+    <Compile Include="TradingSimulationRunner.cs" />
+    <Compile Include="TradingSimulationState.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GP4Sim.CSharpAgents\GP4Sim.CSharpAgents.csproj">
+      <Project>{28c2f55b-2304-40f2-8d95-08a4873f6633}</Project>
+      <Name>GP4Sim.CSharpAgents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GP4Sim.Data\GP4Sim.Data.csproj">
+      <Project>{3f975d8c-5437-49a7-abad-89537cf77278}</Project>
+      <Name>GP4Sim.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GP4Sim.SimulationFramework\GP4Sim.SimulationFramework.csproj">
+      <Project>{982e6c62-f086-4ddd-b17a-700a92cc0360}</Project>
+      <Name>GP4Sim.SimulationFramework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

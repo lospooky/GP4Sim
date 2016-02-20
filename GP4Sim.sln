@@ -1,0 +1,88 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GP4Sim.Collections", "GP4Sim.Collections\GP4Sim.Collections.csproj", "{B4EC8AC5-457D-4E98-A6EB-47D96E8157F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GP4Sim.SymbolicTrees", "GP4Sim.SymbolicTrees\GP4Sim.SymbolicTrees.csproj", "{41B9A105-999D-497C-8CFE-D2BDCECF50E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GP4Sim.Data", "GP4Sim.Data\GP4Sim.Data.csproj", "{3F975D8C-5437-49A7-ABAD-89537CF77278}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GP4Sim.CSharpAgents", "GP4Sim.CSharpAgents\GP4Sim.CSharpAgents.csproj", "{28C2F55B-2304-40F2-8D95-08A4873F6633}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GP4Sim.SimulationFramework", "GP4Sim.SimulationFramework\GP4Sim.SimulationFramework.csproj", "{982E6C62-F086-4DDD-B17A-700A92CC0360}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GP4Sim.Excel", "GP4Sim.Excel\GP4Sim.Excel.csproj", "{81252FBC-8CAD-4D08-B12D-A1B0E7209525}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GP4Sim.Trading", "GP4Sim.Trading\GP4Sim.Trading.csproj", "{80DD08E2-5379-407F-996D-384B9D7C159C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GP4Sim.Trading.Simulation", "GP4Sim.Trading.Simulation\GP4Sim.Trading.Simulation.csproj", "{A622BB01-54F3-4694-AF14-AD6E02AD49F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GP4Sim.Trading.MonteCarlo", "GP4Sim.Trading.MonteCarlo\GP4Sim.Trading.MonteCarlo.csproj", "{55207985-9532-4217-9108-85EF6C1AAEF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GP4Sim.Collections.Views", "GP4Sim.Collections.Views\GP4Sim.Collections.Views.csproj", "{2335E902-838A-48C8-B95A-86B342290463}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GP4Sim.Trading.Views", "GP4Sim.Trading.Views\GP4Sim.Trading.Views.csproj", "{DD0C5F9A-0178-419C-B154-4E5D7895C3FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GP4Sim.Trading.Instances.Views", "GP4Sim.Trading.Instances.Views\GP4Sim.Trading.Instances.Views.csproj", "{493A2516-E692-4434-977A-BB9D90C154CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4EC8AC5-457D-4E98-A6EB-47D96E8157F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4EC8AC5-457D-4E98-A6EB-47D96E8157F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4EC8AC5-457D-4E98-A6EB-47D96E8157F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4EC8AC5-457D-4E98-A6EB-47D96E8157F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41B9A105-999D-497C-8CFE-D2BDCECF50E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41B9A105-999D-497C-8CFE-D2BDCECF50E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41B9A105-999D-497C-8CFE-D2BDCECF50E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41B9A105-999D-497C-8CFE-D2BDCECF50E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F975D8C-5437-49A7-ABAD-89537CF77278}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F975D8C-5437-49A7-ABAD-89537CF77278}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F975D8C-5437-49A7-ABAD-89537CF77278}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F975D8C-5437-49A7-ABAD-89537CF77278}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28C2F55B-2304-40F2-8D95-08A4873F6633}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28C2F55B-2304-40F2-8D95-08A4873F6633}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28C2F55B-2304-40F2-8D95-08A4873F6633}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28C2F55B-2304-40F2-8D95-08A4873F6633}.Release|Any CPU.Build.0 = Release|Any CPU
+		{982E6C62-F086-4DDD-B17A-700A92CC0360}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{982E6C62-F086-4DDD-B17A-700A92CC0360}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{982E6C62-F086-4DDD-B17A-700A92CC0360}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{982E6C62-F086-4DDD-B17A-700A92CC0360}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81252FBC-8CAD-4D08-B12D-A1B0E7209525}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81252FBC-8CAD-4D08-B12D-A1B0E7209525}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81252FBC-8CAD-4D08-B12D-A1B0E7209525}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81252FBC-8CAD-4D08-B12D-A1B0E7209525}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80DD08E2-5379-407F-996D-384B9D7C159C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80DD08E2-5379-407F-996D-384B9D7C159C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80DD08E2-5379-407F-996D-384B9D7C159C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80DD08E2-5379-407F-996D-384B9D7C159C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A622BB01-54F3-4694-AF14-AD6E02AD49F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A622BB01-54F3-4694-AF14-AD6E02AD49F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A622BB01-54F3-4694-AF14-AD6E02AD49F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A622BB01-54F3-4694-AF14-AD6E02AD49F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55207985-9532-4217-9108-85EF6C1AAEF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55207985-9532-4217-9108-85EF6C1AAEF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55207985-9532-4217-9108-85EF6C1AAEF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55207985-9532-4217-9108-85EF6C1AAEF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2335E902-838A-48C8-B95A-86B342290463}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2335E902-838A-48C8-B95A-86B342290463}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2335E902-838A-48C8-B95A-86B342290463}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2335E902-838A-48C8-B95A-86B342290463}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD0C5F9A-0178-419C-B154-4E5D7895C3FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD0C5F9A-0178-419C-B154-4E5D7895C3FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD0C5F9A-0178-419C-B154-4E5D7895C3FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD0C5F9A-0178-419C-B154-4E5D7895C3FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{493A2516-E692-4434-977A-BB9D90C154CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{493A2516-E692-4434-977A-BB9D90C154CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{493A2516-E692-4434-977A-BB9D90C154CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{493A2516-E692-4434-977A-BB9D90C154CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
