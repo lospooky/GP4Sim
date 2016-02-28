@@ -20,26 +20,30 @@ It requires .NET 4.5 or greater and HeuristicLab 3.3.13.<br>
 * [Download] (https://github.com/lospooky/GP4Sim/archive/master.zip) the source OR clone the repo, `git clone https://github.com/lospooky/GP4Sim.git`
 * Open GP4Sim.sln with Visual Studio 2015 and for all packages fix the HeuristicLab references according to the path HeuristicLab is installed on your system
 * Build
-* Copy the compiled .dlls in your Heuristiclab Installation directory
+* Copy all the compiled .dlls in your `HeuristicLab/bin` directory
 
 ### From Binaries
 * [Download](https://github.com/lospooky/GP4Sim/releases/download/v1.0/GP4Sim-v1.0.zip) the compiled binaries, unzip and place in your HeuristicLab installation directory
 
 ## Usage
 
-* Make sure HeuristicLab is seeing the plugins by checking HL's Plugin Manager, GP4Sim plugins should appear in there
+First of all make sure HeuristicLab is detecting the GP4Sim plugins by checking HL's Plugin Manager<br>
+GP4Sim plugins should appear in there
 
 ### Symbolic Trading Problem
-From HeuristicLab, New Problem -> GP4Sim Symbolic Trading Problem
-Explore and select available solution evaluators for trading problems. 
+From HeuristicLab, New Problem -> GP4Sim Symbolic Trading Problem<br>
+Explore and select available solution evaluators for trading problems:<br> 
 Problem Pane -> Evaluator Node -> Set Value (Pencil)
 
 ### Symbolic Tree Expression Tree Interpreter
-From any problem type using symbolic trees, flag the Show Hiddden Parameters box
+From any problem type using symbolic trees, flag the Show Hiddden Parameters box<br>
 SymbolicExpressionTreeInterpreter -> Set Value (Pencil) -> Select GP4Sim SymbolicStateExpressionTreeInterpreter
 
 ### Implement your own GP Simulation Problem Type
 Build on top of the GP4Sim packages, just like I did for the Trading Problem
+
+## Documentation
+Please check out each plugin's own `README.md`
 
 ## Credits & License
 [blog.spook.ee/GP4Sim](http://blog.spook.ee/GP4Sim)<br>
