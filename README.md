@@ -28,6 +28,6 @@ It requires .NET 4.5 or greater and HeuristicLab 3.3.13.<br>
 ## Usage
 
 ## Credits & License
-[blog.spook.ee/GP4Sim](blog.spook.ee/GP4Sim)<br>
+[blog.spook.ee/GP4Sim](http://blog.spook.ee/GP4Sim)<br>
 © Simone Cirillo. 2016.<br>
 SynoShows is distributed under the [MIT License](https://opensource.org/licenses/MIT).<br>
