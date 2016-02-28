@@ -25,7 +25,7 @@ It requires .NET 4.5 or greater and HeuristicLab 3.3.13.<br>
 ### From Binaries
 * [Download](https://github.com/lospooky/GP4Sim/releases/download/v1.0/GP4Sim-v1.0.zip) the compiled binaries, unzip and place in your HeuristicLab installation directory
 
-## Usage
+### Usage
 
 * Make sure HeuristicLab is seeing the plugins by checking HL's Plugin Manager, GP4Sim plugins should appear in there
 
