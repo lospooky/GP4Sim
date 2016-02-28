@@ -16,14 +16,16 @@ It requires .NET 4.5 or greater and HeuristicLab 3.3.13.<br>
 * .NET 4.5
 * [HeuristicLab](http://dev.heuristiclab.com)
 
-# From Sources
-* [Download] (https://github.com/lospooky/GP4Sim/archive/master.zip) the source, build with Visual Studio 2015.
-* Clone the repo, `git clone https://github.com/lospooky/GP4Sim.git` and build with Visual Studio 2015.
+### From Sources
+* [Download] (https://github.com/lospooky/GP4Sim/archive/master.zip) the source OR Clone the repo, `git clone https://github.com/lospooky/GP4Sim.git`
+* Open GP4Sim.sln with Visual Studio 2015 and fix the HeuristicLab references for all the packages
+* Build
+* Put the compiled .dlls in your Heuristiclab Installation directory
 
-# From Binaries
-* [Download](https://github.com/lospooky/GP4Sim/releases/download/v1.0/GP4Sim-v1.0.zip) the compiled binaries, unzip, run
+### From Binaries
+* [Download](https://github.com/lospooky/GP4Sim/releases/download/v1.0/GP4Sim-v1.0.zip) the compiled binaries, unzip and place in your HeuristicLab Installation directory
 
-## Usage
+#### Usage
 
 ## Credits & License
 [blog.spook.ee/GP4Sim](blog.spook.ee/GP4Sim)<br>
