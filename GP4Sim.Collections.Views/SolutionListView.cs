@@ -684,20 +684,5 @@ namespace GP4Sim.Collections.Views
                 }
             }
         }
-
-        private void MCAllButton_Click(object sender, EventArgs e)
-        {
-            List<ITradingProblemData> mcSets = null;
-            if (Content != null)
-                mcSets = ((ITradingSolution)Content[0]).ProblemData.MonteCarloSets(0, true);
-
-            if (mcSets != null)
-            {
-                foreach (ITradingSolution sol in Content)
-                {
-                    sol.PerformMonteCarloEvaluation(mcSets);
-                }
-            }
-        }
     }
 }

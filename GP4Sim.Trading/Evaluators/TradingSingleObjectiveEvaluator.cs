@@ -72,24 +72,6 @@ namespace GP4Sim.Trading.Evaluators
             return results;
         }
 
-        public MCEnvelope MCAnalyze(SymbolicAbstractTreeInterpreter interpreter, ISymbolicExpressionGrammar grammar, ISymbolicExpressionTree tree, ITradingProblemData problemData)
-        {
-
-            AgentFunction agent = CompileTree(tree, interpreter, grammar);
-            SimulationParameters_Internal simParameters = new SimulationParameters_Internal(problemData.SimulationParameters.MinOrderSize, problemData.SimulationParameters.StartingNAV, problemData.SimulationParameters.Slack, problemData.SimulationParameters.MinTrades, problemData.SimulationParameters.ExposureLimits, problemData.SimulationParameters.CommissionFcn.Function);
-            TradingSimulationRunner simRunner = new TradingSimulationRunner(agent, problemData, problemData.DataCache, simParameters, problemData.TimePointVariable, problemData.PriceVariable, problemData.AllowedInputVariables.Count(), problemData.AllowedInputStates.Count(), LagLimit(grammar), problemData.InvertPrices, problemData.TrainingIndices, TradingSimulationRunMode.MONTECARLO, evalType, problemData.TrainingMaxReturn, false);
-
-            simRunner.Run();
-            MCEnvelope results = simRunner.MCResults;
-
-            agent = null;
-            simParameters = null;
-            simRunner.TearDown();
-            simRunner = null;
-
-            return results;
-        }
-
         public string SimulationLog(SymbolicAbstractTreeInterpreter interpreter, ISymbolicExpressionGrammar grammar, ISymbolicExpressionTree tree, ITradingProblemData problemData, IEnumerable<int> rows)
         {
             double maxReturn = 0;

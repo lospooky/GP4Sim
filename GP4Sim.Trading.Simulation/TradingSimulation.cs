@@ -24,7 +24,6 @@ namespace GP4Sim.Trading.Simulation
         private DateTime currentTimePoint;
 
         private ITradingEnvelope results = null;
-        private MCEnvelope mcResults = null;
 
         private bool invertedInstrumentPrices = false;
 
@@ -149,17 +148,6 @@ namespace GP4Sim.Trading.Simulation
                 Stats.AddDayPoint(currentTimePoint);
                 Stats.Trading.Crossings.Finalize(State.NAV);
                 results = GenerateResults();
-            }
-            else if (runMode == TradingSimulationRunMode.MONTECARLO)
-            {
-                Stats.BuyHold.BHSellPrice = currentPrice;
-                Stats.BuyHold.BHReturn = BuyHoldReturn();
-                Stats.AddInstrPoint(currentPrice);
-                Stats.AddNavPoint(Stats.SnapshotNAV);
-                Stats.AddDayPoint(currentTimePoint);
-                Stats.Trading.Crossings.Finalize(State.NAV);
-                mcResults = GenerateMCResults();
-
             }
         }
         #endregion
@@ -360,19 +348,8 @@ namespace GP4Sim.Trading.Simulation
             env.DayPoints = Stats.DayPoints;
             return env;
         }
-
-
-        private MCEnvelope GenerateMCResults()
-        {
-            MCEnvelope env = new MCEnvelope();
-            env.DailyNavPoints = Stats.DailyNavPoints;
-            env.DailyInstrPoints = Stats.DailyInstrPoints;
-            env.DayPoints = Stats.DayPoints;
-            env.LastDayNAV = Stats.LastDayNAV;
-
-            return env;
-        }
         #endregion
+
 
         #region Public Properties
         public TradingSimulationState State { get { return state; } }
@@ -381,10 +358,6 @@ namespace GP4Sim.Trading.Simulation
         {
             get { return results; }
 
-        }
-        public MCEnvelope MCResults
-        {
-            get { return mcResults; }
         }
         public long DpIndex { get { return dpIndex; } }
         public DateTime CurrentTimePoint { get { return currentTimePoint; } }
@@ -446,9 +419,8 @@ namespace GP4Sim.Trading.Simulation
             stats.Teardown();
             stats = null;
             results = null;
-            mcResults = null;
         }
 
-        #endregion
     }
 }
+#endregion

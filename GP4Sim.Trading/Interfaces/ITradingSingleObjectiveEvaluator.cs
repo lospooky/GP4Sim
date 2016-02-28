@@ -14,7 +14,6 @@ namespace GP4Sim.Trading.Interfaces
     public interface ITradingSingleObjectiveEvaluator : ITradingEvaluator, ISimulationSingleObjectiveEvaluator<ITradingProblemData>
     {
         ITradingEnvelope Analyze(SymbolicAbstractTreeInterpreter interpreter, ISymbolicExpressionGrammar grammar, ISymbolicExpressionTree tree, ITradingProblemData problem, IEnumerable<int> rows);
-        MCEnvelope MCAnalyze(SymbolicAbstractTreeInterpreter interpreter, ISymbolicExpressionGrammar grammar, ISymbolicExpressionTree tree, ITradingProblemData problem);
         string SimulationLog(SymbolicAbstractTreeInterpreter interpreter, ISymbolicExpressionGrammar grammar, ISymbolicExpressionTree tree, ITradingProblemData problem, IEnumerable<int> rows);
     }
 }

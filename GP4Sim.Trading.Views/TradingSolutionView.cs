@@ -140,10 +140,5 @@ namespace GP4Sim.Trading.Views
             }
         }
 
-        private void MCButton_Click(object sender, EventArgs e)
-        {
-
-            Content.PerformMonteCarloEvaluation(Content.ProblemData.MonteCarloSets(0, true));
-        }
     }
 }

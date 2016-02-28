@@ -17,7 +17,5 @@ namespace GP4Sim.Trading.Interfaces
         double TrainingMaxReturn { get; }
         double TestMaxReturn { get; }
 
-        bool MonteCarlo { get; }
-        List<ITradingProblemData> MonteCarloSets(int seed, bool regenerate = false);
     }
 }

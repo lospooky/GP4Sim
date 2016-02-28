@@ -12,6 +12,5 @@ namespace GP4Sim.Trading.Interfaces
         new ITradingModel Model { get; }
         new ITradingProblemData ProblemData { get; set; }
         string DescriptiveName { get; }
-        void PerformMonteCarloEvaluation(List<ITradingProblemData> mcSets);
     }
 }

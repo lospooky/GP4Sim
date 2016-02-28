@@ -55,7 +55,6 @@ namespace GP4Sim.Trading.Views
         private System.Windows.Forms.Button ExcelExportButton;
         private System.Windows.Forms.Button ExportAgentButton;
         private System.Windows.Forms.Button LogButton;
-        private System.Windows.Forms.Button MCButton;
         #endif
 
         private void InitializeComponent()
@@ -65,7 +64,6 @@ namespace GP4Sim.Trading.Views
             this.ExportAgentButton = new System.Windows.Forms.Button();
             this.ExcelExportButton = new System.Windows.Forms.Button();
             this.LogButton = new System.Windows.Forms.Button();
-            this.MCButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             #endif
 
@@ -86,7 +84,6 @@ namespace GP4Sim.Trading.Views
             // 
             // splitContainer.Panel2
             // 
-            this.splitContainer.Panel2.Controls.Add(this.MCButton);
             this.splitContainer.Panel2.Controls.Add(this.LogButton);
             this.splitContainer.Panel2.Controls.Add(this.ExcelExportButton);
             this.splitContainer.Panel2.Controls.Add(this.ExportAgentButton);
@@ -162,16 +159,6 @@ namespace GP4Sim.Trading.Views
             this.LogButton.Text = "Log";
             this.LogButton.UseVisualStyleBackColor = true;
             this.LogButton.Click += new System.EventHandler(this.LogButton_Click);
-            // 
-            // MCButton
-            // 
-            this.MCButton.Location = new System.Drawing.Point(275, 4);
-            this.MCButton.Name = "MCButton";
-            this.MCButton.Size = new System.Drawing.Size(75, 23);
-            this.MCButton.TabIndex = 10;
-            this.MCButton.Text = "MonteCarlo";
-            this.MCButton.UseVisualStyleBackColor = true;
-            this.MCButton.Click += new System.EventHandler(this.MCButton_Click);
 #endif
             // 
             // TradingSolutionView

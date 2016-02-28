@@ -116,8 +116,9 @@
       <HintPath>..\..\..\HeuristicLab\bin\HeuristicLab.Problems.DataAnalysis.Symbolic-3.4.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Ookii.Dialogs">
-      <HintPath>..\Ookii.Dialogs.dll</HintPath>
+    <Reference Include="Ookii.Dialogs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0c15020868fd6249, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ookii.Dialogs.WindowsForms.1.0\lib\net35\Ookii.Dialogs.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -165,6 +166,9 @@
       <Project>{80dd08e2-5379-407f-996d-384b9d7c159c}</Project>
       <Name>GP4Sim.Trading</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -178,8 +178,6 @@ namespace GP4Sim.Trading.Simulation
 
         public ITradingEnvelope Results { get { return Sim.Results; } }
 
-        public MCEnvelope MCResults { get { return Sim.MCResults; } }
-
         public string LogText
         {
             get

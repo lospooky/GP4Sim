@@ -17,7 +17,6 @@ namespace GP4Sim.Trading.Interfaces
         double[] GetDailyInstrPoints(ITradingProblemData problemData, IEnumerable<int> rows);
         DateTime[] GetDayPoints(ITradingProblemData problemData, IEnumerable<int> rows);
         string GetSimulationLog(ITradingProblemData problemData, IEnumerable<int> rows);
-        MCEnvelope GetMCResult(ITradingProblemData problemData);
 
         ITradingSolution CreateSolution(ITradingProblemData problemData);
     }

@@ -62,15 +62,9 @@ namespace GP4Sim.Trading.Analyzers
 
             ITradingModel model = new TradingModel(bestTree, SymbolicDataAnalysisTreeInterpreterParameter.ActualValue as SymbolicAbstractTreeInterpreter, SymbolicExpressionGrammarParameter.ActualValue, EvaluatorParameter.ActualValue, EstimationLimitsParameter.ActualValue.Lower, EstimationLimitsParameter.ActualValue.Upper);
             TradingSolution sol = new TradingSolution(model, ProblemDataParameter.ActualValue);
-            if (ProblemDataParameter.ActualValue.MonteCarlo)
-                DoMonteCarlo(sol);
             sol.Name = solName + bestQuality.ToString("F5");
             return sol;
         }
 
-        private void DoMonteCarlo(TradingSolution sol)
-        {
-            sol.PerformMonteCarloEvaluation(ProblemDataParameter.ActualValue.MonteCarloSets(SeedParameter.Value));
-        }
     }
 }

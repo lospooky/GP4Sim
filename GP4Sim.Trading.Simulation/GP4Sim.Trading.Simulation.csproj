@@ -113,7 +113,6 @@
     <Compile Include="ITradingEnvelope.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="LogLineEventArgs.cs" />
-    <Compile Include="MCEnvelope.cs" />
     <Compile Include="OnlineMVSCalculator.cs" />
     <Compile Include="Pacemaker.cs" />
     <Compile Include="Plugin.cs" />

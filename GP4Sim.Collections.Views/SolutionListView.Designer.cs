@@ -33,7 +33,6 @@ namespace GP4Sim.Collections.Views
 #if Limited==false
         private Button ExportAllButton;
         private Button ExcelAllButton;
-        private Button MCAllButton;
 #endif
 
         #region Windows Form Designer generated code
@@ -67,7 +66,6 @@ namespace GP4Sim.Collections.Views
             this.itemsGroupBox.SuspendLayout();
             this.SuspendLayout();
             #if Limited == false
-            this.MCAllButton = new System.Windows.Forms.Button();
             this.ExcelAllButton = new System.Windows.Forms.Button();
             this.ExportAllButton = new System.Windows.Forms.Button();
             #endif
@@ -97,7 +95,6 @@ namespace GP4Sim.Collections.Views
             this.splitContainer.TabIndex = 0;
 
             #if Limited == false
-            this.splitContainer.Panel2.Controls.Add(this.MCAllButton);
             this.splitContainer.Panel2.Controls.Add(this.ExcelAllButton);
             this.splitContainer.Panel2.Controls.Add(this.ExportAllButton);
             #endif
@@ -195,16 +192,7 @@ namespace GP4Sim.Collections.Views
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
 #if Limited == false
-            // 
-            // MCAllButton
-            // 
-            this.MCAllButton.Location = new System.Drawing.Point(251, 3);
-            this.MCAllButton.Name = "MCAllButton";
-            this.MCAllButton.Size = new System.Drawing.Size(100, 23);
-            this.MCAllButton.TabIndex = 3;
-            this.MCAllButton.Text = "MonteCarlo All";
-            this.MCAllButton.UseVisualStyleBackColor = true;
-            this.MCAllButton.Click += new System.EventHandler(this.MCAllButton_Click);
+
             // 
             // ExcelAllButton
             // 

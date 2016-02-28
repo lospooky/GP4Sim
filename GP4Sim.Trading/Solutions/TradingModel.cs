@@ -21,15 +21,6 @@ namespace GP4Sim.Trading.Solutions
     [Item(Name = "Symbolic Trading Model", Description = "Represents a symbolic concrete model.")]
     public class TradingModel : SimulationModel<ITradingProblemData, TradingEnvelope>, ITradingModel
     {
-        #region Properties
-        [Storable]
-        private Dictionary<string, MCEnvelope> mccache;
-        protected Dictionary<string, MCEnvelope> MCCache
-        {
-            get { return mccache; }
-        }
-
-        #endregion
 
         #region Constructors
         [StorableConstructor]
@@ -43,7 +34,7 @@ namespace GP4Sim.Trading.Solutions
           ITradingSingleObjectiveEvaluator evaluator, double lowerEstimationLimit = double.MinValue, double upperEstimationLimit = double.MaxValue)
             : base(tree, interpreter, grammar, evaluator, lowerEstimationLimit, upperEstimationLimit)
         {
-            mccache = new Dictionary<string, MCEnvelope>();
+
         }
 
         public override IDeepCloneable Clone(Cloner cloner)
@@ -91,26 +82,6 @@ namespace GP4Sim.Trading.Solutions
             Cache.Add(new IntRange2(rows.First(), rows.Last()), resultsEnvelope);
         }
 
-        public MCEnvelope GetMCResult(ITradingProblemData problemData)
-        {
-            if (!isMCCached(problemData.Name))
-                MCEvaluate(problemData);
-
-            return MCCache[problemData.Name];
-        }
-
-        protected bool isMCCached(string id)
-        {
-            if (mccache.ContainsKey(id))
-                return true;
-            return false;
-        }
-
-        protected void MCEvaluate(ITradingProblemData problemData)
-        {
-            MCEnvelope mcResults = Evaluator.MCAnalyze(Interpreter as SymbolicAbstractTreeInterpreter, Grammar, SymbolicExpressionTree, problemData);
-            MCCache.Add(problemData.Name, mcResults);
-        }
 
         public string GetSimulationLog(ITradingProblemData problemData, IEnumerable<int> rows)
         {

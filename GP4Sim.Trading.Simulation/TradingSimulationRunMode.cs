@@ -7,6 +7,6 @@ namespace GP4Sim.Trading.Simulation
 {
     public enum TradingSimulationRunMode
     {
-        EVALUATION = 0, ANALYSIS = 1, MONTECARLO = 2
+        EVALUATION = 0, ANALYSIS = 1
     }
 }

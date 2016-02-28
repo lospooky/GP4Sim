@@ -14,7 +14,6 @@ using GP4Sim.SimulationFramework.Problem;
 using GP4Sim.Data;
 using GP4Sim.Trading.Interfaces;
 using GP4Sim.Trading.Parameters;
-using GP4Sim.Trading.MonteCarlo;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 
@@ -31,7 +30,6 @@ namespace GP4Sim.Trading.Problem
         protected const string PriceVariableParameterName = "Price Variable";
         protected const string SimulationParametersParameterName = "Simulation Parameters";
         protected const string InvertedPriceVariableName = "Invert Price";
-        protected const string MonteCarloSettingsParameterName = "Monte Carlo Settings";
 
         protected const string TrainingMaxReturnParameterName = "Maximum Training Return";
         protected const string TestMaxReturnParameterName = "Maximum Test Return";
@@ -40,8 +38,6 @@ namespace GP4Sim.Trading.Problem
 
         private object lockobject = new object();
 
-        [NonSerialized]
-        private List<ITradingProblemData> mcSets;
 
         #endregion
 
@@ -67,10 +63,6 @@ namespace GP4Sim.Trading.Problem
             get { return (IValueParameter<BoolValue>)Parameters[InvertedPriceVariableName]; }
         }
 
-        public IValueParameter<MonteCarloParameters> MonteCarloSettingsParameter
-        {
-            get { return (IValueParameter<MonteCarloParameters>)Parameters[MonteCarloSettingsParameterName]; }
-        }
 
         public IValueParameter<IntValue> LastSeedParameter
         {
@@ -115,11 +107,6 @@ namespace GP4Sim.Trading.Problem
             set { InvertPriceParameter.Value.Value = value; }
         }
 
-        public MonteCarloParameters MonteCarloSettings
-        {
-            get { return MonteCarloSettingsParameter.Value; }
-            set { MonteCarloSettingsParameter.Value = value; }
-        }
 
         public int LastSeed
         {
@@ -127,10 +114,6 @@ namespace GP4Sim.Trading.Problem
             set { LastSeedParameter.Value.Value = value; }
         }
 
-        public bool MonteCarlo
-        {
-            get { return MonteCarloSettings.Enabled; }
-        }
 
         public double TrainingMaxReturn
         {
@@ -216,7 +199,6 @@ namespace GP4Sim.Trading.Problem
             problemData.Parameters.Add(new ConstrainedValueParameter<StringValue>(PriceVariableParameterName, new ItemSet<StringValue>()));
             problemData.Parameters.Add(new ConstrainedValueParameter<StringValue>(TimePointVariableName, new ItemSet<StringValue>()));
             problemData.Parameters.Add(new ValueParameter<BoolValue>(InvertedPriceVariableName, new BoolValue(false)));
-            problemData.Parameters.Add(new ValueParameter<MonteCarloParameters>(MonteCarloSettingsParameterName, new MonteCarloParameters()));
             problemData.Parameters.Add(new ValueParameter<IntValue>(LastSeedParameterName, new IntValue(0)));
             problemData.Parameters.Add(new ValueParameter<DoubleValue>(TrainingMaxReturnParameterName, new DoubleValue(double.NaN)));
             problemData.Parameters.Add(new ValueParameter<DoubleValue>(TestMaxReturnParameterName, new DoubleValue(double.NaN)));
@@ -237,9 +219,6 @@ namespace GP4Sim.Trading.Problem
         {
             if (!Parameters.ContainsKey(InvertedPriceVariableName))
                 Parameters.Add(new ValueParameter<BoolValue>(InvertedPriceVariableName, new BoolValue(false)));
-
-            if (!Parameters.ContainsKey(MonteCarloSettingsParameterName))
-                Parameters.Add(new ValueParameter<MonteCarloParameters>(MonteCarloSettingsParameterName, new MonteCarloParameters(TrainingPartition.Size)));
 
 
             if (!Parameters.ContainsKey(LastSeedParameterName))
@@ -295,9 +274,6 @@ namespace GP4Sim.Trading.Problem
             if (!Parameters.ContainsKey(InvertedPriceVariableName))
                 Parameters.Add(new ValueParameter<BoolValue>(InvertedPriceVariableName, new BoolValue(false)));
 
-            if (!Parameters.ContainsKey(MonteCarloSettingsParameterName))
-                Parameters.Add(new ValueParameter<MonteCarloParameters>(MonteCarloSettingsParameterName, new MonteCarloParameters(TrainingPartition.Size)));
-
             if (!Parameters.ContainsKey(LastSeedParameterName))
             {
                 Parameters.Add(new ValueParameter<IntValue>(LastSeedParameterName, new IntValue(0)));
@@ -339,7 +315,6 @@ namespace GP4Sim.Trading.Problem
             Parameters.Add(new ValueParameter<TradingSimulationParameters>(SimulationParametersParameterName, new TradingSimulationParameters()));
             Parameters.Add(new ValueParameter<BoolValue>(InvertedPriceVariableName, new BoolValue(false)));
 
-            Parameters.Add(new ValueParameter<MonteCarloParameters>(MonteCarloSettingsParameterName, new MonteCarloParameters(TrainingPartition.Size)));
             Parameters.Add(new ValueParameter<IntValue>(LastSeedParameterName, new IntValue(0)));
             Parameters.Add(new ValueParameter<DoubleValue>(TrainingMaxReturnParameterName, new DoubleValue(double.NaN)));
             Parameters.Add(new ValueParameter<DoubleValue>(TestMaxReturnParameterName, new DoubleValue(double.NaN)));
@@ -398,7 +373,6 @@ namespace GP4Sim.Trading.Problem
         private void TrainingPartition_ValueChanged(object sender, EventArgs e)
         {
             MaxReturnZero(TrainingPartition);
-            MonteCarloSettings.NSamples = TrainingPartition.Size;
         }
 
         private void TestPartition_ValueChanged(object sender, EventArgs e)
@@ -418,37 +392,6 @@ namespace GP4Sim.Trading.Problem
             return true;
         }
 
-        public List<ITradingProblemData> MonteCarloSets(int seed, bool regenerate=false)
-        {
-            if (mcSets == null || SeedCheck(seed) == false || regenerate == true)
-            {
-                if (seed == 0)
-                    seed = new Random().Next(0, 10000000);
-
-                List<Dataset> sets = MonteCarloDataFactory.GenerateMonteCarloData(this.Dataset, this.TrainingPartition, this.MonteCarloSettings.NSamples, this.MonteCarloSettings.NEvaluations, this.TimePointVariable);
-                List<ITradingProblemData> problems = new List<ITradingProblemData>();
-
-
-                for (int i = 0; i < sets.Count(); i++)
-                {
-                    //Parallel.For(0, sets.Count, i=>
-                    //{
-                    TradingProblemData p = new TradingProblemData(sets[i], this.AllowedInputVariables, this.PriceVariable, this.TimePointVariable);
-                    p.Name = seed.ToString() + " - " + (i + 1).ToString();
-                    p.SimulationParameters = this.SimulationParameters;
-                    p.InvertPrices = this.InvertPrices;
-                    p.TrainingPartition.Start = 0;
-                    p.TrainingPartition.End = this.MonteCarloSettings.NSamples;
-                    p.TestPartition.Start = 0;
-                    p.TestPartition.End = 0;
-                    problems.Add(p);
-                    //});
-                }
-
-                mcSets = problems;                 
-            }
-            return mcSets;
-        }
 
         private void CalculateMaxReturn(IntRange partition)
         {

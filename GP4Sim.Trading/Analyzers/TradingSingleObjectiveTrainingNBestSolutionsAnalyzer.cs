@@ -6,7 +6,6 @@ using System.Windows.Forms;
 using GP4Sim.SimulationFramework.Analyzers;
 using GP4Sim.SymbolicTrees;
 using GP4Sim.Trading.Interfaces;
-using GP4Sim.Trading.MonteCarlo;
 using GP4Sim.Trading.Solutions;
 using HeuristicLab.Common;
 using HeuristicLab.Core;
@@ -74,15 +73,8 @@ namespace GP4Sim.Trading.Analyzers
         {
             ITradingModel model = new TradingModel(tree, SymbolicDataAnalysisTreeInterpreterParameter.ActualValue as SymbolicAbstractTreeInterpreter, SymbolicExpressionGrammarParameter.ActualValue, EvaluatorParameter.ActualValue, EstimationLimitsParameter.ActualValue.Lower, EstimationLimitsParameter.ActualValue.Upper);
             TradingSolution sol = new TradingSolution(model, ProblemDataParameter.ActualValue);
-            if (ProblemData.MonteCarlo)
-                DoMonteCarlo(sol);
             sol.Name = solName + bestQuality.ToString("F5");
             return sol;
-        }
-
-        private void DoMonteCarlo(TradingSolution sol)
-        {
-            sol.PerformMonteCarloEvaluation(ProblemDataParameter.ActualValue.MonteCarloSets(SeedParameter.Value));
         }
         
     }

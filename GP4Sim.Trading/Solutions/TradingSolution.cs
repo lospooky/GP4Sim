@@ -33,21 +33,6 @@ namespace GP4Sim.Trading.Solutions
         }
         #endregion
 
-        #region Monte Carlo Results
-        private const string MonteCarloResultsName = "Monte Carlo Results";
-
-        public ResultCollection MonteCarloResultCollection
-        {
-            get
-            {
-                if (this.ContainsKey(MonteCarloResultsName))
-                    return (ResultCollection)this[MonteCarloResultsName].Value;
-                else
-                    return null;
-            }
-        }
-        #endregion
-
         #region Constructors
         [StorableConstructor]
         private TradingSolution(bool deserializing) : base(deserializing) { }
@@ -109,21 +94,5 @@ namespace GP4Sim.Trading.Solutions
             return "Fitness: " + this.TrainingFitnessScore.ToString("F5");
         }
 
-        public void PerformMonteCarloEvaluation(List<ITradingProblemData> mcSets)
-        {
-            ResultCollection mcResults;
-            if (!this.ContainsKey(MonteCarloResultsName))
-            {
-                mcResults = new ResultCollection();
-                Add(new Result(MonteCarloResultsName, mcResults));
-            }
-            else
-                mcResults = MonteCarloResultCollection;
-
-
-            foreach (ITradingProblemData mcProblem in mcSets)
-                mcResults.Add(new Result(mcProblem.Name, Model.GetMCResult(mcProblem)));
-
-        }
     }
 }
