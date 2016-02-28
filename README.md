@@ -36,7 +36,7 @@ Explore and select available solution evaluators for trading problems:<br>
 Problem Pane -> Evaluator Node -> Set Value (Pencil)
 
 ### Symbolic Tree Expression Tree Interpreter
-From any problem type using symbolic trees, flag the Show Hiddden Parameters box<br>
+From any problem type using symbolic trees, e.g. the built-in Symbolic Regression / Symbolic Classification problems, flag the Show Hiddden Parameters box<br>
 SymbolicExpressionTreeInterpreter -> Set Value (Pencil) -> Select GP4Sim SymbolicStateExpressionTreeInterpreter
 
 ### Implement your own GP Simulation Problem Type
