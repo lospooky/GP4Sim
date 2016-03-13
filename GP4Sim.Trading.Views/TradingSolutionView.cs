@@ -87,7 +87,6 @@ namespace GP4Sim.Trading.Views
             DialogResult result = sfd.ShowDialog();
             if (result == DialogResult.OK)
             {
-                //CSharpFormatter csf = new CSharpFormatter();
                 CSharpFormatter csf = new CSharpFormatter();
                 string source = csf.FormatFull(Content.Model.SymbolicExpressionTree, Content.ActualInputVector);
                 string filename = sfd.FileName.ToLower();

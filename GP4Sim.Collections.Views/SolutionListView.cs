@@ -644,11 +644,9 @@ namespace GP4Sim.Collections.Views
                     int idx = 1;
                     foreach (ITradingSolution solution in Content)
                     {
-                        //CSharpFormatter formatter = new CSharpFormatter();
                         CSharpFormatter formatter = new CSharpFormatter();
                         string source = formatter.FormatFull(solution.Model.SymbolicExpressionTree, solution.ActualInputVector);
                         string filename = Path.Combine(vfd.SelectedPath, fnd.Input + "_" + idx.ToString().PadLeft(2, '0') + ".cs");
-                        //string filename = Path.Combine(vfd.SelectedPath, solution.Name + "_" + idx + ".cs");
                         try
                         {
                             File.WriteAllText(filename, source);
