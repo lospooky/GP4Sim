@@ -102,17 +102,11 @@
   <ItemGroup>
     <Compile Include="AgentDelegate.cs" />
     <Compile Include="CSharpFormatter.cs" />
-    <Compile Include="CSharpFormatterNew.cs" />
+    <Compile Include="ExtensionMethods.cs" />
     <Compile Include="CSStrings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CSStrings.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ExtensionMethods.cs" />
-    <Compile Include="NewCSStrings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NewCSStrings.resx</DependentUpon>
     </Compile>
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -121,10 +115,6 @@
     <EmbeddedResource Include="CSStrings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CSStrings.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NewCSStrings.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>NewCSStrings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

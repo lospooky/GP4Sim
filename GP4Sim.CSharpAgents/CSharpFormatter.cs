@@ -2,26 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using GP4Sim.SymbolicTrees;
 using HeuristicLab.Common;
 using HeuristicLab.Core;
 using HeuristicLab.Encodings.SymbolicExpressionTreeEncoding;
 using HeuristicLab.Persistence.Default.CompositeSerializers.Storable;
 using HeuristicLab.Problems.DataAnalysis.Symbolic;
-using GP4Sim.SymbolicTrees;
-
 
 namespace GP4Sim.CSharpAgents
 {
-    [Item("Deltix Agent C# Formatter 1.0", "Formats SymbolicTrees into Deltix-Runnable C# Agents, NO LAG")]
+    [Item("Agent C# Formatter 2.0", "Formats SymbolicTrees into Runnable C# Agents, Lagged Variable Support")]
     [StorableClass]
     public sealed class CSharpFormatter : NamedItem, ISymbolicExpressionTreeStringFormatter
     {
-        //private int currentLag;
-        //private int currentIndexNumber;
-        //private int linenumber;
-
-        private Dictionary<string, int> varMap;
-
         #region Constructors
 
         [StorableConstructor]
@@ -43,31 +36,31 @@ namespace GP4Sim.CSharpAgents
         #endregion
 
         #region Formatting Parser Logic
-
         public string Format(ISymbolicExpressionTree symbolicExpressionTree)
         {
             StringBuilder sb = new StringBuilder();
-            if (varMap == null)
-                varMap = new Dictionary<string, int>();
 
-            string body = FormatRecursively(symbolicExpressionTree.Root, 0);
-
-            sb.AppendLine(CSStrings.Header);
-            sb.AppendLine();
-            sb.AppendLine(PrintDescriptiveVarMap());
-            sb.AppendLine(FormatRecursively(symbolicExpressionTree.Root, 0));
-            sb.AppendLine();
-            sb.AppendLine(CSStrings.Footer);
-
+           
 
             return sb.ToString();
         }
 
-        public string FormatFull(ISymbolicExpressionTree symbolicexpressionTree, List<string> variables)
+        public string FormatFull(ISymbolicExpressionTree symbolicExpressionTree, List<string> actualVariables)
         {
-            
-            GenerateVarMap(variables);
-            return Format(symbolicexpressionTree);
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine(CSStrings.ClassHeader);
+
+            sb.AppendLine(PrintVarMap(actualVariables));
+
+            sb.AppendLine(CSStrings.FunctionHeader);
+            sb.AppendLine(FormatRecursively(symbolicExpressionTree.Root, 0));
+            sb.AppendLine(CSStrings.FunctionFooter);
+
+            sb.AppendLine(CSStrings.ClassFooter);
+
+
+            return sb.ToString();
         }
 
         private string FormatRecursively(ISymbolicExpressionTreeNode node, int linReg)
@@ -169,71 +162,71 @@ namespace GP4Sim.CSharpAgents
             else if (s is Logarithm)
             {
                 if (node.GetSubtree(0).IsTerminal())
-                    sb.AppendLine(LinearRegister(linReg) + "=" + "(float)Math.Log(" + FormatRecursively(node.GetSubtree(0), linReg) + ");");
+                    sb.AppendLine(LinearRegister(linReg) + "=" + "Math.Log(" + FormatRecursively(node.GetSubtree(0), linReg) + ");");
                 else
                 {
                     sb.Append(FormatRecursively(node.GetSubtree(0), linReg));
-                    sb.AppendLine(LinearRegister(linReg) + "=" + "(float)Math.Log(" + LinearRegister(linReg) + ");");
+                    sb.AppendLine(LinearRegister(linReg) + "=" + "Math.Log(" + LinearRegister(linReg) + ");");
                 }
             }
             else if (s is Exponential)
             {
                 if (node.GetSubtree(0).IsTerminal())
-                    sb.AppendLine(LinearRegister(linReg) + "=" + "(float)Math.Exp(" + FormatRecursively(node.GetSubtree(0), linReg) + ");");
+                    sb.AppendLine(LinearRegister(linReg) + "=" + "Math.Exp(" + FormatRecursively(node.GetSubtree(0), linReg) + ");");
                 else
                 {
                     sb.Append(FormatRecursively(node.GetSubtree(0), linReg));
-                    sb.AppendLine(LinearRegister(linReg) + "=" + "(float)Math.Exp(" + LinearRegister(linReg) + ");");
+                    sb.AppendLine(LinearRegister(linReg) + "=" + "Math.Exp(" + LinearRegister(linReg) + ");");
                 }
             }
             else if (s is Sine)
             {
                 if (node.GetSubtree(0).IsTerminal())
-                    sb.AppendLine(LinearRegister(linReg) + "=" + "(float)Math.Sin(" + FormatRecursively(node.GetSubtree(0), linReg) + ");");
+                    sb.AppendLine(LinearRegister(linReg) + "=" + "Math.Sin(" + FormatRecursively(node.GetSubtree(0), linReg) + ");");
                 else
                 {
                     sb.Append(FormatRecursively(node.GetSubtree(0), linReg));
-                    sb.AppendLine(LinearRegister(linReg) + "=" + "(float)Math.Sin(" + LinearRegister(linReg) + ");");
+                    sb.AppendLine(LinearRegister(linReg) + "=" + "Math.Sin(" + LinearRegister(linReg) + ");");
                 }
             }
             else if (s is Cosine)
             {
                 if (node.GetSubtree(0).IsTerminal())
-                    sb.AppendLine(LinearRegister(linReg) + "=" + "(float)Math.Cos(" + FormatRecursively(node.GetSubtree(0), linReg) + ");");
+                    sb.AppendLine(LinearRegister(linReg) + "=" + "Math.Cos(" + FormatRecursively(node.GetSubtree(0), linReg) + ");");
                 else
                 {
                     sb.Append(FormatRecursively(node.GetSubtree(0), linReg));
-                    sb.AppendLine(LinearRegister(linReg) + "=" + "(float)Math.Cos(" + LinearRegister(linReg) + ");");
+                    sb.AppendLine(LinearRegister(linReg) + "=" + "Math.Cos(" + LinearRegister(linReg) + ");");
                 }
             }
             else if (s is Tangent)
             {
                 if (node.GetSubtree(0).IsTerminal())
-                    sb.AppendLine(LinearRegister(linReg) + "=" + "(float)Math.Tan(" + FormatRecursively(node.GetSubtree(0), linReg) + ");");
+                    sb.AppendLine(LinearRegister(linReg) + "=" + "Math.Tan(" + FormatRecursively(node.GetSubtree(0), linReg) + ");");
                 else
                 {
                     sb.Append(FormatRecursively(node.GetSubtree(0), linReg));
-                    sb.AppendLine(LinearRegister(linReg) + "=" + "(float)Math.Tan(" + LinearRegister(linReg) + ");");
+                    sb.AppendLine(LinearRegister(linReg) + "=" + "Math.Tan(" + LinearRegister(linReg) + ");");
                 }
             }
             else if (s is SquareRoot)
             {
                 if (node.GetSubtree(0).IsTerminal())
-                    sb.AppendLine(LinearRegister(linReg) + "=" + "(float)Math.Sqrt(" + FormatRecursively(node.GetSubtree(0), linReg) + ");");
+                    sb.AppendLine(LinearRegister(linReg) + "=" + "Math.Sqrt(" + FormatRecursively(node.GetSubtree(0), linReg) + ");");
                 else
                 {
                     sb.Append(FormatRecursively(node.GetSubtree(0), linReg));
-                    sb.AppendLine(LinearRegister(linReg) + "=" + "(float)Math.Sqrt(" + LinearRegister(linReg) + ");");
+                    sb.AppendLine(LinearRegister(linReg) + "=" + "Math.Sqrt(" + LinearRegister(linReg) + ");");
                 }
             }
             else if (s is Square)
             {
                 if (node.GetSubtree(0).IsTerminal())
-                    sb.AppendLine(LinearRegister(linReg) + "=" + "(float)Math.Pow(" + FormatRecursively(node.GetSubtree(0), linReg) + ",2);");
+                    sb.AppendLine(LinearRegister(linReg) + "=" + "Math.Pow(" + FormatRecursively(node.GetSubtree(0), linReg) + ",2);");
                 else
                 {
                     sb.Append(FormatRecursively(node.GetSubtree(0), linReg));
-                    sb.AppendLine(LinearRegister(linReg) + "=" + "(float)Math.Pow(" + LinearRegister(linReg) + ",2);");
+                    sb.AppendLine(LinearRegister(linReg) + "=" + "Math.Pow(" + LinearRegister(linReg) + ",2);");
                 }
             }
 
@@ -255,8 +248,9 @@ namespace GP4Sim.CSharpAgents
                     sb.Append(FormatRecursively(node.GetSubtree(2), linReg + 1));
 
 
-                sb.AppendLine("if (!flag) ");
+                sb.AppendLine("if (!flagstack[fc-1]) ");
                 sb.AppendLine(LinearRegister(linReg) + "=" + LinearRegister(linReg + 1) + ";");
+                sb.AppendLine("fc--;");
 
             }
             else if (s is GreaterThan)
@@ -271,7 +265,8 @@ namespace GP4Sim.CSharpAgents
                 else
                     sb.Append(FormatRecursively(node.GetSubtree(1), linReg + 1));
 
-                sb.AppendLine("if ( " + LinearRegister(linReg) + " > " + LinearRegister(linReg + 1) + " ) " + "flag=true; else flag=false;");
+                sb.AppendLine("if ( " + LinearRegister(linReg) + " > " + LinearRegister(linReg + 1) + " ) " + "flagstack[fc]=true; else flagstack[fc]=false;");
+                sb.AppendLine("fc++;");
 
             }
             else if (s is LessThan)
@@ -286,11 +281,22 @@ namespace GP4Sim.CSharpAgents
                 else
                     sb.Append(FormatRecursively(node.GetSubtree(1), linReg + 1));
 
-                sb.AppendLine("if ( " + LinearRegister(linReg) + " < " + LinearRegister(linReg + 1) + " ) " + "flag=true; else flag=false;");
+                sb.AppendLine("if ( " + LinearRegister(linReg) + " < " + LinearRegister(linReg + 1) + " ) " + "flagstack[fc]=true; else flagstack[fc]=false;");
+                sb.AppendLine("fc++;");
             }
             else if (s is Constant)
             {
                 sb.Append((node as ConstantTreeNode).Value.ToString() + "F");
+            }
+            else if (s is LaggedVariable)
+            {
+                LaggedVariableTreeNode lvn = node as LaggedVariableTreeNode;
+                if (lvn.Weight != 1)
+                {
+                    sb.Append(lvn.Weight.ToString());
+                    sb.Append("*");
+                }
+                sb.Append(Variable(lvn.VariableName, lvn.Lag));
             }
             else if (s is HeuristicLab.Problems.DataAnalysis.Symbolic.Variable)
             {
@@ -299,24 +305,21 @@ namespace GP4Sim.CSharpAgents
 
                 if (vn.Weight != 1)
                 {
-                    sb.Append("(float)");
                     sb.Append(vn.Weight.ToString());
                     sb.Append("*");
                 }
-                sb.Append(Variable(vn.VariableName));
+                sb.Append(Variable(vn.VariableName, 0));
             }
-            else if (s is InternalStateTreeNode)
+            else if (s is InternalState)
             {
                 InternalStateTreeNode vn = node as InternalStateTreeNode;
 
                 if (vn.Weight != 1)
                 {
-                    sb.Append("(float)");
                     sb.Append(vn.Weight.ToString());
                     sb.Append("*");
                 }
-                sb.Append(Variable(vn.VariableName));
-
+                sb.Append(InternalState(vn.VariableName));
             }
 
             return sb.ToString();
@@ -340,49 +343,39 @@ namespace GP4Sim.CSharpAgents
         private static string Division { get { return "/="; } }
         private static string Assignment { get { return "="; } }
 
-        private string Variable(string vName)
+        private string Variable(string vName, int lag)
         {
-            if (!varMap.Keys.Contains(vName))
-                varMap.Add(vName, varMap.Count);
-
-
-
-            /*
-            int nIdx = vName.IndexOfAny(new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' });
-            if (nIdx == 0)
-                throw new ArgumentOutOfRangeException("Invalid Variable Name(s)");
-            else
-            {
-                string result = vName.Substring(0, nIdx);
-                result += "[";
-                result += vName.Substring(nIdx);
-                result += "]";
-
-                return result;
-            }
-             */
-            return "x[" + varMap[vName] + "]";
+            string[] v = vName.Split('_');
+            return "InputVars[\""+v[0]+"_"+v[1]+"_"+Math.Abs(lag)+"\"].Invoke()";
         }
-        #endregion
 
-        private string PrintDescriptiveVarMap()
+        private string InternalState(string sName)
+        {
+            return "InternalStates[\""+sName+"\"].Invoke()";
+        }
+
+        private string Capitalize(string s)
+        {
+            if (String.IsNullOrEmpty(s))
+                return string.Empty;
+
+            return Char.ToUpper(s[0]) + s.Substring(1).ToLower();
+        }
+
+        private string PrintVarMap(List<string> vars)
         {
             StringBuilder sb = new StringBuilder();
-
-            foreach (string key in varMap.Keys)
+            sb.AppendLine(CSStrings.VarsHeader);
+            foreach (string v in vars)
             {
-                sb.AppendLine("// x[" + varMap[key] + "] is " + key);
+                sb.Append("\"" + v.Replace('_',' ') + "\"");
+                if (!vars.Last().Equals(v))
+                    sb.AppendLine(",");
             }
+            sb.AppendLine(CSStrings.VarsFooter);
 
             return sb.ToString();
         }
-
-        private void GenerateVarMap(List<string> variables)
-        {
-            varMap = new Dictionary<string, int>();
-            foreach (string v in variables)
-                varMap.Add(v, varMap.Count);
-        }
-
+        #endregion
     }
 }

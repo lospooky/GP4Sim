@@ -213,7 +213,6 @@
     <Compile Include="Instances\TradingDummyInstanceProvider.cs" />
     <Compile Include="Instances\TradingImportType.cs" />
     <Compile Include="Instances\TradingInstanceProvider.cs" />
-    <Compile Include="Instances\TradingTimeBaseInstanceProvider.cs" />
     <Compile Include="Instances\ValueGenerator.cs" />
     <Compile Include="Interfaces\ITradingEvaluator.cs" />
     <Compile Include="Interfaces\ITradingModel.cs" />

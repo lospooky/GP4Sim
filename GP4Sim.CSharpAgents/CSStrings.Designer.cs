@@ -61,36 +61,72 @@ namespace GP4Sim.CSharpAgents {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to if (float.IsNegativeInfinity(f[0]) || float.IsPositiveInfinity(f[0]))
-        ///f[0]=0;
-        ///	
-        ///    	            fixed (float* fPtr = f)
-        ///	                {
-        ///                        *o = fPtr;
-        ///	                }
-        ///	                return;
-        ///                }
-        ///            }.
+        ///   Looks up a localized string similar to }.
         /// </summary>
-        internal static string Footer {
+        internal static string ClassFooter {
             get {
-                return ResourceManager.GetString("Footer", resourceCulture);
+                return ResourceManager.GetString("ClassFooter", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to using System;    
-        ///            unsafe public class Agent
-        ///            {
-        ///                public void GP(float* x, float** o)
-        ///                {
-        ///                    float[] f = new float[8];
-        ///                    f[0]=f[1]=f[2]=f[3]=f[4]=f[5]=f[6]=f[7]=0;
-        ///                    bool flag = true;.
+        ///   Looks up a localized string similar to using System;
+        ///using System.Collections.Generic;
+        ///public class AgentClass
+        ///{
+        ///.
         /// </summary>
-        internal static string Header {
+        internal static string ClassHeader {
             get {
-                return ResourceManager.GetString("Header", resourceCulture);
+                return ResourceManager.GetString("ClassHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to if(double.IsNegativeInfinity(f[0]) || double.IsPositiveInfinity(f[0]))
+        ///          f[0] = 0;
+        ///       
+        ///       return f[0];
+        ///    }.
+        /// </summary>
+        internal static string FunctionFooter {
+            get {
+                return ResourceManager.GetString("FunctionFooter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to public double GPFunction(Dictionary&lt;string,Func&lt;double&gt;&gt; InputVars, Dictionary&lt;string,Func&lt;double&gt;&gt; InternalStates)
+        ///{
+        ///       double[] f = new double[8];
+        ///       f[0]=f[1]=f[2]=f[3]=f[4]=f[5]=f[6]=f[7]=0.0;
+        ///       bool[] flagstack = new bool[8];
+        ///       int fc = 0;
+        ///.
+        /// </summary>
+        internal static string FunctionHeader {
+            get {
+                return ResourceManager.GetString("FunctionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to };
+        ///.
+        /// </summary>
+        internal static string VarsFooter {
+            get {
+                return ResourceManager.GetString("VarsFooter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to public List&lt;string&gt; Vars = new List&lt;string&gt;
+        ///{.
+        /// </summary>
+        internal static string VarsHeader {
+            get {
+                return ResourceManager.GetString("VarsHeader", resourceCulture);
             }
         }
     }
